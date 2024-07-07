@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
 // @desc    Register a new user
-// @route   /api/users
+// @route   POST /api/users
 // @access  Public
 export const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -49,7 +49,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Login a user
-// @route   /api/users/login
+// @route   POST /api/users/login
 // @access  Public
 export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -72,7 +72,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get a new user
-// @route   /api/users/me
+// @route   GET /api/users/me
 // @access  Private
 export const getMe = asyncHandler(async (req, res) => {
   const user = {

@@ -17,6 +17,12 @@ export const protect = asyncHandler(async (req, res, next) => {
       // Get user from token
       req.user = await User.findById(decoded.id).select("-password"); //This finds the user in mongodb byt the id gotten from the id and the select removes the password field from the stuff we get from the db
 
+      // NOTE: We need to check if a user was found
+      if (!req.user) {
+        res.status(401);
+        throw new Error("User Not Found");
+      }
+
       next();
     } catch (error) {
       console.log(error);
