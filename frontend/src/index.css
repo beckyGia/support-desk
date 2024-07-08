@@ -237,19 +237,19 @@ h3 {
   text-align: center;
 }
 
-.status-new {
+.status-New {
   background-color: green;
   color: #fff;
   border-radius: 10px;
 }
 
-.status-open {
+.status-Open {
   background-color: steelblue;
   color: #fff;
   border-radius: 10px;
 }
 
-.status-closed {
+.status-Closed {
   background-color: darkred;
   color: #fff;
   border-radius: 10px;
