@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import colors from "colors";
 import { userRoutes } from "./routes/userRoutes.js";
 import { ticketRoutes } from "./routes/ticketRoutes.js";
+import { noteRoutes } from "./routes/noteRoutes.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
 import { connectDB } from "./config/db.js";
 import path from "path";

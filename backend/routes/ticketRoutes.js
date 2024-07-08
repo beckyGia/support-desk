@@ -1,5 +1,4 @@
 import express from "express";
-import { Router } from "express";
 import {
   getTickets,
   getTicket,
@@ -8,13 +7,20 @@ import {
   updateTicket,
 } from "../controllers/ticketController.js";
 import { protect } from "../middleware/authMiddleware.js";
+import { noteRoutes } from "./noteRoutes.js";
 
-export const ticketRoutes = Router();
+// Create the main router
+const router = express.Router();
 
-ticketRoutes.route("/").get(protect, getTickets).post(protect, createTicket);
+router.route("/").get(protect, getTickets).post(protect, createTicket);
 
-ticketRoutes
+router
   .route("/:id")
   .get(protect, getTicket)
   .delete(protect, deleteTicket)
   .put(protect, updateTicket);
+
+// Re-route into note router
+router.use("/:ticketId/notes", noteRoutes);
+
+export const ticketRoutes = router;
